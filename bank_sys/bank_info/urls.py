@@ -1,0 +1,35 @@
+from django.urls import path
+from .views import *
+
+
+urlpatterns = [
+    path("currency/", CurrencyListAPIView.as_view()),
+    path("card_kinds/", CardKindsList.as_view()),
+    path('card_kinds/<str:name>/', CardKindsDetailView.as_view()),
+    path("deposit_kinds/", DepositKindsList.as_view()),
+    path('deposit_kinds/<str:name>/', DepositKindsDetailView.as_view()),
+    path("credit_kinds/", CreditKindsList.as_view()),
+    path('credit_kinds/<str:name>/', CreditKindsDetailView.as_view()),
+    path('face_comparison/', FaceComparisonAPIView.as_view()),
+    path('register/', RegisterAPIView.as_view()),
+    path('bank_info/', HeaderFooterAPIView.as_view()),
+    path('create_card/', CardCreateView.as_view()),
+    path('create_deposit/', DepositCreateView.as_view()),
+    path('create_credit/', CreditCreateView.as_view()),
+    path('pay/', PayForCompany.as_view()),
+    path('card_transfer/', CardTransferView.as_view()),
+    path('card_to_deposit_transfer/', DepositTransferView.as_view()),
+    path('user_info/', UserInfoView.as_view()),
+    path('user_card_info/', UserCardInfoView.as_view()),
+    path('user_deposit_info/', UserDepositInfoView.as_view()),
+    path('user_credit_info/', UserCreditInfoView.as_view()),
+    path('card_transfer_history_sender/', CardTransferList.as_view()),
+    path('card_transfer_history_getter/', CardTransferGetterList.as_view()),
+    path('card_transfer_deposit_history_getter/', CardDepositTransferGetterList.as_view()),
+    path('card_transfer_deposit_history_sender/', CardDepositTransferSenderList.as_view()),
+    path('pay_transfer_history/', PayTransferSenderList.as_view()),
+    path('credit_transfer/', CreditTransferList.as_view()),
+    path('credit_transfer_history/', CreditTransferHistoryList.as_view()),
+    path('payment_company_categories/', PaymentCompanyCategoriesList.as_view()),
+    path('payment_company_categories/<str:name>/', PaymentCompanyList.as_view()),
+]
